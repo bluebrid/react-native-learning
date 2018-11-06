@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "Ivan",
+        "picture": "image-1",
+        "isBlacker": false
+    },
+    {
+        "id": 2,
+        "name": "Tom",
+        "picture": "image-2",
+        "isBlacker": false
+    },
+    {
+        "id": 3,
+        "name": "Jack",
+        "picture": "image-3",
+        "isBlacker": false
+    },
+    {
+        "id": 4,
+        "name": "Sam",
+        "picture": "image-4",
+        "isBlacker": false
+    }
+]
