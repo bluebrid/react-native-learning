@@ -1,2 +1,2 @@
-# react-native-learning-
+# react-native-learning
 React Native learing . 
