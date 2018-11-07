@@ -1,6 +1,6 @@
-// import {observable, computed, reaction} from 'mobx'
-export default class FindStore {
-    /*
+import {observable, computed, reaction} from 'mobx'
+ class FindStore {
+    
     @observable users = [];
     @computed get blackersCount () {
         return this.users.reduce( (sum, u) => sum + (u.isBlacker ? 0 : 1) , 0)
@@ -8,5 +8,7 @@ export default class FindStore {
     @computed get usersCount () {
         return this.users.length - this.blackersCount;
     }
-    */
+    
 }
+const findStore = new FindStore();
+export default {findStore}

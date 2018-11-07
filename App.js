@@ -7,7 +7,8 @@
  */
 import React, {Component} from 'react';
 import Main from './components/Main';
-//import Store from './stores';
+import store from './stores';
+import { Provider } from "mobx-react";
 export default class App extends Component {
     state = {
         count: 0,
@@ -19,7 +20,9 @@ export default class App extends Component {
 
     render() {
         return (
-         <Main/>
+            <Provider {...store}>
+                <Main/>
+             </Provider>
         );
     }
 }

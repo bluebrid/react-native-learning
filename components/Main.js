@@ -11,7 +11,7 @@ import {
     Platform
 } from 'react-native';
 import TabNavigator from 'react-native-tab-navigator';
-// import {observer} from 'mobx-react';
+import {observer, inject } from 'mobx-react';
 // import NavConfig from '../configs/Menu';
 import Home from '../components/Home';
 import Message from '../components/Message';
@@ -23,7 +23,7 @@ const NavConfig =  [
         title: 'Home',
         icon: 'icon_tabbar_home',
         selectedIcon: 'icon_tabbar_home_selected',
-        badgetText: '1',
+        badgetText: store => store.homeStore.usersCount,
         child: title => <Home title={title}/>
     },
     {
@@ -31,7 +31,7 @@ const NavConfig =  [
         title: 'Message',
         icon: 'icon_tabbar_message',
         selectedIcon: 'icon_tabbar_message_selected',
-        badgetText: '2',
+        badgetText: store => store.messageStore.usersCount,
         child: title => <Message title={title}/>
     },
     {
@@ -49,7 +49,11 @@ const NavConfig =  [
         child: title => <Mine title={title}/>
     }
 ]
-// @observer
+@inject("Find")
+@inject("Home")
+@inject("Message")
+@inject("Mine")
+@observer
 export default class Main extends Component {
     constructor(props) {
         super(props)
@@ -61,7 +65,7 @@ export default class Main extends Component {
         // store: PropTypes.object.isRequired
     }
     render() {
-        // const store = this.props.store;
+        const store = this.props;
         return (
             <TabNavigator>
                 {
@@ -74,8 +78,8 @@ export default class Main extends Component {
                         selected ={ this.state.selectedTab === nav.title}
                         onPress={() => this.setState({ selectedTab: nav.title })}                     
                         selectedTitleStyle={styles.selectedTitleStyle}   
-                        badgeText={nav.badgetText}                        
-                        // badgeText={nav.badgetText && nav.badgetText(store[nav.name])}
+                        //badgeText={index}                        
+                        badgeText={nav.badgetText && nav.badgetText(store[nav.name])}
                         >                    
                         {nav.child(nav.title)}
                     
