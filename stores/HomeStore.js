@@ -1,5 +1,5 @@
 import {observable, computed, reaction} from 'mobx'
- class HomeStore {  
+export default class HomeStore {  
     @observable users = [{
         isBlacker: false
     }, {
@@ -21,5 +21,4 @@ import {observable, computed, reaction} from 'mobx'
     }
     
 }
-const homeStore = new HomeStore();
-export default {homeStore}
+ 

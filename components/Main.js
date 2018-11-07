@@ -20,23 +20,26 @@ import Mine from '../components/Mine';
 const NavConfig =  [
     {
         name: 'Home',
+        store: 'homeStore',
         title: 'Home',
         icon: 'icon_tabbar_home',
         selectedIcon: 'icon_tabbar_home_selected',
-        badgetText: store => store.homeStore.usersCount,
+        badgetText: store => store.usersCount,
         child: title => <Home title={title}/>
     },
     {
         name: 'Message',
         title: 'Message',
+        store: 'messageStore',
         icon: 'icon_tabbar_message',
         selectedIcon: 'icon_tabbar_message_selected',
-        badgetText: store => store.messageStore.usersCount,
+        badgetText: store => store.usersCount,
         child: title => <Message title={title}/>
     },
     {
         name: 'Find',
         title: 'Find',
+        store: 'findStore',
         icon: 'icon_tabbar_find',
         selectedIcon: 'icon_tabbar_find_selected',        
         child: title => <Find title={title}/>
@@ -44,15 +47,16 @@ const NavConfig =  [
     {
         name: 'Mine',
         title: 'Mine',
+        store: 'mineStore',
         icon: 'icon_tabbar_mine',
         selectedIcon: 'icon_tabbar_mine_selected',
         child: title => <Mine title={title}/>
     }
 ]
-@inject("Find")
-@inject("Home")
-@inject("Message")
-@inject("Mine")
+@inject("findStore")
+@inject("homeStore")
+@inject("messageStore")
+@inject("mineStore")
 @observer
 export default class Main extends Component {
     constructor(props) {
@@ -78,8 +82,7 @@ export default class Main extends Component {
                         selected ={ this.state.selectedTab === nav.title}
                         onPress={() => this.setState({ selectedTab: nav.title })}                     
                         selectedTitleStyle={styles.selectedTitleStyle}   
-                        //badgeText={index}                        
-                        badgeText={nav.badgetText && nav.badgetText(store[nav.name])}
+                        badgeText={nav.badgetText && nav.badgetText(store[nav.store])}
                         >                    
                         {nav.child(nav.title)}
                     

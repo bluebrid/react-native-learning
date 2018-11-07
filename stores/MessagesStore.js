@@ -1,5 +1,5 @@
 import {observable, computed, reaction} from 'mobx'
- class MessageStore {
+export default class MessageStore {
     
     @observable users = [];
     @computed get blackersCount () {
@@ -10,5 +10,3 @@ import {observable, computed, reaction} from 'mobx'
     }
     
 }
-const messageStore = new MessageStore();
-export default {messageStore}

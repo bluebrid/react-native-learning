@@ -1,11 +1,14 @@
-import Find from './FindStore';
-import Home from './HomeStore';
-import Message from './MessagesStore';
-import Mine from './UsersStore';
-
+import FindStore from './FindStore';
+import HomeStore from './HomeStore';
+import MessageStore from './MessagesStore';
+import UserStore from './UsersStore';
+const findStore = new FindStore();
+const homeStore = new HomeStore();
+const messageStore = new MessageStore();
+const mineStore = new UserStore();
 export default {
-    Find,
-    Home,
-    Message,
-    Mine
+    findStore,
+    homeStore,
+    messageStore,
+    mineStore
 }
