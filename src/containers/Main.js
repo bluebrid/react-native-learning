@@ -5,18 +5,16 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {
     StyleSheet,
-    Text,
-    View,
     Image,
     Platform
 } from 'react-native';
 import TabNavigator from 'react-native-tab-navigator';
 import {observer, inject } from 'mobx-react';
 // import NavConfig from '../configs/Menu';
-import Home from '../components/Home';
-import Message from '../components/Message';
-import Find from '../components/Find';
-import Mine from '../components/Mine';
+import Home from './Home';
+import Message from './Message';
+import Find from './Find';
+import Mine from './Mine';
 const NavConfig =  [
     {
         name: 'Home',

@@ -6,8 +6,8 @@
  * Email:crazycodeboy@gmail.com
  */
 import React, {Component} from 'react';
-import Main from './components/Main';
-import store from './stores';
+import Main from './src/containers/Main'; 
+import store from './src/stores';
 import { Provider } from "mobx-react";
 export default class App extends Component {
     state = {
