@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { View, Text, Image, StyleSheet } from 'react-native'
-//User Card
+import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native'
+import { refDecorator } from 'mobx/lib/api/observable';
 export default class Card extends Component {
     constructor(props) {
         super(props)
@@ -17,8 +17,20 @@ export default class Card extends Component {
                 </View>
 
                 <View style={styles.profiles}>
-                    <Text>Name: {item.login}</Text>
-                    <Text>E-mail: {item.login}</Text>
+                    <Text>{item.login}</Text>
+                    <Text>E-mail: {item.email}</Text>
+                    <View style={styles.btnGroup}>
+                        <TouchableOpacity
+                            style={styles.userBtn}
+                            onPress={() => {}}>
+                            <Text> FOLLOW </Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                            style={styles.userBtn}
+                            onPress={() => {}}>
+                            <Text> UNFOLLOW </Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
             </View>
         )
@@ -29,9 +41,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'flex-start',
-        backgroundColor: '#f0f3f5',
-        borderWidth: 1,
-        borderColor: '#d1dde6',
         height: 100,
         marginBottom: 10,
     },
@@ -44,15 +53,24 @@ const styles = StyleSheet.create({
     image: {
         width: 80,
         height: 80,
-        borderRadius: 40,
-        marginLeft: 10,
-        marginRight: 10,
+        marginLeft: 15,
     },
     profiles: {
         flex: 3,
         height: 100,
-        borderWidth: 1,
-        borderColor: 'red',
+        marginTop: 10,
+        marginLeft: 10,
         flexDirection: 'column',
+    },
+    btnGroup: {
+        flex:2,
+        flexDirection: 'row',
+    },
+    userBtn: {
+        height: 20,
+        width: 50,
+        marginRight: 30,
+        alignItems: 'center',
+        color: 'red',
     }
 });
