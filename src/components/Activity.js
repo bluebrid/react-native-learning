@@ -1,4 +1,4 @@
-import React, {Component} from 'C:/Users/Ivan_Fan.PRINCETON/AppData/Local/Microsoft/TypeScript/2.9/node_modules/@types/react';
+import React, {Component} from 'react';
 import {
   StyleSheet,
   Text,
