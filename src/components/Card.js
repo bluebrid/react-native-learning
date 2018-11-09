@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { View, Text, Image, StyleSheet } from 'react-native'
+//User Card
 export default class Card extends Component {
     constructor(props) {
         super(props)
